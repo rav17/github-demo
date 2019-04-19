@@ -1,2 +1,61 @@
-git clone :
+clone repository :
+---------------------------------------
 git clone https://github.com/rav17/github-demo.git
+
+check the status of the repositoy :
+------------------------------------
+git status
+
+
+Types of Areas in Local Repository:
+-------------------------------------
+working directory  --(git add <filename>)--> staging directory --(git commit -m <<commit comment>>)--> local git repository --(git push origin master)---> remote repository
+
+Setting global configuration in git :
+-------------------------------------------------
+# setting email address:
+git config --global user.email "<<git user's email address>>"
+
+#setting email username :
+git config --global user.name <<git username>>
+
+#setting text editor for linux :
+git config --global core.editor "brackets"
+
+
+creating a new git repository locally:
+---------------------------------------------
+
+git init <<project/repo-name>>
+
+
+how to identify whether a project/folder is a git repository ?
+--------------------------------------------------------------------
+
+do ls -latr once you are inside the folder and check of (.git) folder.
+
+#example
+
+ ⚡ ⚙ root@192-168-1-111  ~neo/devops_learning/git_tutorials/git_practicesZone/first_project > ls -latr
+ 
+ total 0
+drwxr-xr-x. 5 root root 115 Apr 19 19:54 ..
+-rw-r--r--. 1 root root   0 Apr 19 19:56 beermeup.txt
+drwxr-xr-x. 3 root root  38 Apr 19 19:56 .
+drwxr-xr-x. 8 root root 166 Apr 19 20:09 .git
+
+so, first_project is the git repository.
+
+
+Forking in git :
+---------------------------------------------------------------
+
+A fork is a copy of a repository. Forking a repository allows you to freely experiment with changes without affecting the original project. Most commonly, forks are used to either propose changes to someone else's project or to use someone else's project as a starting point for your own idea.
+
+
+more detailed explanation  : https://guides.github.com/activities/forking/
+
+
+
+
+
