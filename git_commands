@@ -56,9 +56,130 @@ A fork is a copy of a repository. Forking a repository allows you to freely expe
 more detailed explanation  : https://guides.github.com/activities/forking/
 
 
+staging and comitting the "tracked" files in single command :
+----------------------------------------------------------------
+
+git commit -am "write you comments with in quotes"
+
+#note that below command will work only for those files which are tracked by the git.
+
+
+example :
+
+1. modify an already tracked file (here we are modifying aleady tracked file "git_command")
+
+✘ ⚡ ⚙ root@192-168-1-111  ~neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_commands
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+2. create a new sample.txt file which will be not tracked by git :
+
+⚡ ⚙ root@192-168-1-111  ~neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  touch sample.txt  
+ ⚡ ⚙ root@192-168-1-111  ~neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git status
+# On branch master
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_commands
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	sample.txt
+no changes added to commit (use "git add" and/or "git commit -a")
+
+3. fire the command which will stage and commit the already tracked file in git :
+
+⚡ ⚙ root@192-168-1-111  ~neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git commit -am "testing of -am files"     "
+[master 1b643a6] testing of -am files
+ 1 file changed, 3 insertions(+)
+
+4. check the git status :
+
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	sample.txt
+nothing added to commit but untracked files present (use "git add" to track)
+
+## you can see in the above output that untracked file "sample.txt" was not staged and commit by the "git commit -am" command.
 
 
 
 
+how git track the changes of the files ?
+-------------------------------------------------------------
 
+#git smartly track the changes made to a file, its smart enof to inform you the changes in a files that are staged for commit and changes that are #yet to be staged.
+#in the below examples, we can clearly see that git has cleverly identify the two changes in the git_commands file.
+  1. changes that are staged but not yet committed.
+  2. changes that are yet to be staged.
+  
+⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   git_commands
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_commands
+#
+# Untracked files:
+#   (use "git add <file>..." to include in what will be committed)
+#
+#	sample.txt
+
+
+
+#sample.txt file, is a file that is not yet tracked by the git. in order to get sample.txt file tracked by git use following command :
+
+git add <<sample.txt>>
+
+ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git add sample.txt  
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git status        
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   git_commands
+#	new file:   sample.txt
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_commands
+
+
+Recursively add files to staging area :
+----------------------------------------------------------------
+
+git add . #will add file recursively to staging aread.
+
+
+
+back out changes in the git repository :
+-----------------------------------------------------------------
 
