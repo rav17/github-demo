@@ -183,3 +183,221 @@ git add . #will add file recursively to staging aread.
 back out changes in the git repository :
 -----------------------------------------------------------------
 
+
+1. add line in README.md
+
+⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ✚  cat README.md
+# github-demo
+Demo repository for demo purpose
+this line is for demo to show what happen if changes are backout from git.#  
+
+
+2. add the changes of README.me files to staging area.
+
+
+⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git add README.md        
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ✚  git status       
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   README.md
+#	modified:   git_commands
+#	new file:   sample.txt
+
+
+3.  use the git reset HEAD <file> command to unstage the changes of the file :
+
+
+
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git reset HEAD README.md
+Unstaged changes after reset:
+M	README.md
+
+
+4. perform git status to ensure that file README.md is move to  working directory (not in staging AREA)
+
+
+⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git status              
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   git_commands
+#	new file:   sample.txt
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   README.md
+
+
+
+5. git reset HEAD <file> command, only move the file from staging aread to working directory. it doesn't change the content.
+
+
+⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  cat README.md
+# github-demo
+Demo repository for demo purpose
+this line is for demo to show what happen if changes are backout from git.#           
+
+6. git checkout -- <<fileName>>, will get the file to its originla state (removing all the staged chnages..)
+
+
+⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git checkout -- README.md
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ✚  git status               
+# On branch master
+# Your branch is ahead of 'origin/master' by 1 commit.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   git_commands
+#	new file:   sample.txt
+#
+
+
+7. check the content of the file after running git checkout --- README.md
+
+ 
+⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ✚  cat README.md
+# github-demo
+Demo repository for demo purpose
+
+
+
+##NOTE : git checkout --- will only remove the staged changes. it doesnot have the capability to remove the commit changes..
+
+
+Example :
+
+1. add a line to the README.md file and do git status
+
+⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git status               
+# On branch master
+# Your branch is ahead of 'origin/master' by 3 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   README.md
+#	modified:   git_commands
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+2. push the file README.md to staging Area :
+
+⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git add README.md
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git status       
+# On branch master
+# Your branch is ahead of 'origin/master' by 3 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes to be committed:
+#   (use "git reset HEAD <file>..." to unstage)
+#
+#	modified:   README.md
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_commands
+#
+
+
+3.  check the content of the README.md file . it should have new added line
+
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  cat README.md
+# github-demo
+Demo repository for demo purpose
+this line is for demo to show what happen if changes are backout from git.
+this line is for demo to show what happen if changes are backout from git.
+this line is for demo to show what happen if changes are backout from git.
+
+#above last line is newly added in the file.
+
+
+4. commit the changes and check the git status :
+
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git commit -m  "committing changes to README.md"
+[master af6f348] committing changes to README.md
+ 1 file changed, 1 insertion(+)
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git status
+# On branch master
+# Your branch is ahead of 'origin/master' by 4 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_commands
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+5. do git RESET HEAD <<filename>> command and chck the git status :
+
+
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git reset HEAD README.md
+Unstaged changes after reset:
+M	git_commands
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git status              
+# On branch master
+# Your branch is ahead of 'origin/master' by 4 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_commands
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+6. perform the git checkout and do git status and check the content of the file : 
+
+
+
+
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git ceckout -- README.mdd
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git checkout -- README.md
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git status               
+# On branch master
+# Your branch is ahead of 'origin/master' by 4 commits.
+#   (use "git push" to publish your local commits)
+#
+# Changes not staged for commit:
+#   (use "git add <file>..." to update what will be committed)
+#   (use "git checkout -- <file>..." to discard changes in working directory)
+#
+#	modified:   git_commands
+#
+no changes added to commit (use "git add" and/or "git commit -a")
+ ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  cat README.md
+# github-demo
+Demo repository for demo purpose
+this line is for demo to show what happen if changes are backout from git.
+this line is for demo to show what happen if changes are backout from git.
+this line is for demo to show what happen if changes are backout from git.
+
+
+#we can see that once the file chnages are commited we cannot put the file its original state using git RESET HEAD and git checkout --- command.
+
+
+
+
+
