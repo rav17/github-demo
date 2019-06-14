@@ -211,8 +211,6 @@ this line is for demo to show what happen if changes are backout from git.#
 
 3.  use the git reset HEAD <file> command to unstage the changes of the file :
 
-
-
  ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●✚  git reset HEAD README.md
 Unstaged changes after reset:
 M	README.md
@@ -370,9 +368,6 @@ no changes added to commit (use "git add" and/or "git commit -a")
 
 6. perform the git checkout and do git status and check the content of the file : 
 
-
-
-
  ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git ceckout -- README.mdd
  ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git checkout -- README.md
  ⚡ ⚙ root@192-168-1-111  /home/neo/devops_learning/git_tutorials/git_practicesZone/github-demo   master ●  git status               
@@ -396,6 +391,9 @@ this line is for demo to show what happen if changes are backout from git.
 
 
 #we can see that once the file chnages are commited we cannot put the file its original state using git RESET HEAD and git checkout --- command.
+
+
+
 
 
 
